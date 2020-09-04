@@ -6,4 +6,22 @@ class HomePageView(TemplateView):
 
 class AboutPageView(TemplateView): # new
     template_name = 'about.html'
+
+class HulkView(TemplateView):
+    template_name = 'hulk.html'
+
+    def get_context_data(self, **kwargs):
+        return { 'hero': 'hulk' }
+
+class WidowView(TemplateView):
+    template_name = "black_widow.html"
+
+    def get_context_data(self, **kwargs):
+        return { 'hero': 'black_widow' }
+
+class HeroView(TemplateView):
+    template_name = "hero.html"
+
+    def get_context_data(self, **kwargs):
+        return { 'hero': kwargs['identity'] }
 # Create your views here.
