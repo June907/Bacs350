@@ -1,13 +1,34 @@
-{% extends 'page_theme.html' %}
+{% extends 'superhero_theme.html'%}
+{% load static %}
 
 
-{% block main %}
+ {% block main %}
 
-<h2>Hero - {{ hero }}</h2>
-<p>
-    This page shows my favorite hero.
-</p>
+</div>
+ 
+  </div>
+    <title>SuperHero List</title>
 
-<img src="/static/images/{{ hero }}.jpg" alt="{{ hero }}">
+    <body>
+        <h1>
+            These are my favorite persona.</h1>
+       {% for hero in object_list %}
+
+       <div>
+           <h3>
+               <a href="{% url 'hero_detail' hero.pk %}">{{ hero.name }}</a>
+           </h3>
+           <p>Body:</p>
+           <p>{{ hero.body }}</p>
+       </div>
+       
+       <hr>
+       
+       {% endfor %}
+
+       
+       
+
+    </body>
 
 {% endblock main %}

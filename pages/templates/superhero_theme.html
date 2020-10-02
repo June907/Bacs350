@@ -1,3 +1,5 @@
+  
+{% load static %}
 <!doctype html>
 <html lang="en">
 
@@ -5,11 +7,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ page_title }}</title>
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    {% if css %}
-    <link rel="stylesheet" href="{{ css }}">
-    {% endif %}
+
+    <link rel="stylesheet" href="/static/css/hero.css">
+
 </head>
 
 <body>
@@ -18,20 +20,24 @@
 
     {% block header %}
     <header>
-        <div class="row media">
-            <div class="media-body">
-                {% autoescape off %}
-                <h1 class="display-4 ml-5">
-                    <a href="{{ site_url }}">{{ site_title }}</a>
-                </h1>
-                <h2 class="display-6 ml-5">{{ site_subtitle }}</h2>
-                {% endautoescape %}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="home">Bacs 350</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="../home">Home <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="../hero">Persona List</a>
+                </li>
 
             </div>
-            {% if logo %}
-            <img class="m-3 rounded-circle image-fluid" src="{{ logo }}" alt="Logo" width="150">
-            {% endif %}
-        </div>
+        </nav>
     </header>
     {% endblock header %}
 
@@ -39,7 +45,9 @@
     <h2>NO MAIN DEFINED</h2>
     {% endblock main %}
 
+    {% block footer %}
 
+    {% endblock footer %}
 
     {% endblock content %}
 

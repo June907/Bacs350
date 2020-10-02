@@ -1,9 +1,10 @@
-from pages.views import AboutPage, BasePage, HeroView,IndexPage
 from django.urls import path
+from .views import BlogListView, BlogDetailView, HomePage, BasePage
 
 urlpatterns = [
-    path('', IndexPage.as_view()),
-    path('about', AboutPage.as_view()),
-    path('base', BasePage.as_view()),
-    path('<str:identity>', HeroView.as_view()),
+    path('hero',BlogListView.as_view(), name='hero'),  
+    path('<int:pk>', BlogDetailView.as_view(), name='hero_detail'),
+    path('', HomePage.as_view(), name='home'),
+    path('home', HomePage.as_view(), name='home'),
+    
 ]

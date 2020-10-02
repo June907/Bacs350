@@ -1,20 +1,34 @@
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView,ListView, DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+from .models import Post
 
+class BlogListView(ListView):
+    model =Post
+    template_name='hero.html'
 
-class IndexPage(TemplateView):
-    template_name="index.html"
-    
-class HeroView(TemplateView):
-    template_name = "hero.html"
-
-    def get_context_data(self, **kwargs):
-        id = kwargs.get('identity', 'Hulk')
-        return {'hero': id, 'css': '/static/hero.css'}
+class BlogDetailView(DetailView):
+    model=Post
+    template_name='hero_detail.html'
 
 class BasePage(TemplateView):
-    template_name = "page_theme.html"
-    
-class AboutPage(TemplateView):
-    template_name = "about.html"
+    template_name="superhero_theme.html"
 
+class HomePage(TemplateView):
+    template_name='home.html'
 
+#class BlogCreateView(CreateView):
+    #model=Post
+    #template_name='post_new.html'
+    #fields=['title', 'author', 'body']
+
+#class BlogUpdateView(UpdateView):
+    #model=Post
+    #template_name='post_edit.html'
+    #fields=['title', 'body']
+
+#class BlogDeleteView(DeleteView):
+    #model=Post
+    #template_name='post_delete.html'
+    #success_url=reverse_lazy('home')
+# Create your views here.
