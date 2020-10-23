@@ -1,0 +1,43 @@
+{% extends 'superhero_theme.html'%}
+{% load static %}
+
+
+ {% block main %}
+
+</div>
+ 
+  </div>
+    <title>Persona List</title>
+
+    <body>
+        <h1>Persona List</h1>
+        
+
+        
+        <a href="{% url 'hero_add' %}" class="btn btn-primary">Add Persona</a>
+        <hr>
+       {% for hero in object_list %}
+
+       <div class="card text-white bg-dark mb-3" style="width: 35rem;">
+        <div class="card-body">
+           <h3>
+               <a href="{% url 'hero_detail' hero.pk %}">{{ hero.name }}</a>
+           </h3>
+           <p>Body:</p>
+           <p>{{ hero.body }}</p>
+           <a href="{% url 'hero_edit' hero.pk %}" class="btn btn-primary"> Edit</a>
+           <a href="{% url 'hero_delete' hero.pk %}" class="btn btn-primary"> Delete</a>
+           
+           </div>
+       </div>
+       
+       <hr>
+       
+       {% endfor %}
+
+       
+       
+
+    </body>
+
+{% endblock main %}

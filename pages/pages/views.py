@@ -11,6 +11,17 @@ class BlogDetailView(DetailView):
     model=Post
     template_name='hero_detail.html'
 
+class HeroAddView(CreateView):
+    model=Post
+    template_name='hero_add.html'
+    fields='__all__'
+
+class HeroEditView(UpdateView):
+    model=Post
+    template_name='hero_add.html'
+    fields='__all__'
+
+
 class BasePage(TemplateView):
     template_name="superhero_theme.html"
 
