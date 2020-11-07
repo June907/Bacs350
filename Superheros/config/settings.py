@@ -25,7 +25,7 @@ SECRET_KEY = 'zzs=v2_8-z(oiio2ozd*7n74=(ntp-(*e(ojdsdkqf1nr4gzwm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'hero',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -119,7 +120,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-    '/var/www/static/',
-]
+
+LOGIN_REDIRECT_URL = 'hero'
+LOGOUT_REDIRECT_URL = 'hero'
