@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include('hero.urls')),
     path('', include('accounts.urls')),
     path('', include('workshop.urls')),
+    path('', include('blog.urls')),
 ]
